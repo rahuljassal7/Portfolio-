@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRNw2R+8WQ59Q9jXwG3G1D6QqmPg8+V7N0xkT1nR1vWk5Pq9pmHmTy9gqO2J4A8X2Gu8VdA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      height: 100vh;
+    }
+    /* Sidebar */
+    .sidebar {
+      background-color: #3498db;
+      color: #fff;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+    }
+    .sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+    }
+    .sidebar nav ul li {
+      margin: 15px 0;
+      text-align: center;
+    }
+    .sidebar nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      transition: background 0.3s;
+    }
+    .sidebar nav ul li a:hover {
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+    .download-btn-sidebar {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #3498db;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .download-btn-sidebar:hover {
+      background-color: #ecf0f1;
+    }
+    /* Main content */
+    .main {
+      overflow-y: auto;
+    }
+    /* Header banner */
+    .header {
+      background: url('header-bg.jpg') center/cover no-repeat;
+      height: 40vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .header-content h1 {
+      margin: 0;
+      font-size: 2.8em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .header-content h1 .highlight {
+      color: #3498db;
+    }
+    .header-content p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    .social-icons {
+      margin-top: 20px;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.3em;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #3498db;
+    }
+    /* Sections */
+    .section {
+      padding: 40px 60px;
+    }
+    .section h2 {
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+    .section h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background-color: #3498db;
+      display: block;
+      margin: 8px auto 0;
+    }
+    /* Experience cards */
+    .experience-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #3498db;
+      font-size: 1.2em;
+    }
+    .card .date {
+      font-size: 0.9em;
+      color: #777;
+    }
+    .card p {
+      font-size: 0.95em;
+      line-height: 1.4;
+      color: #555;
+    }
+    /* Responsive */
+    @media(max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .sidebar {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px;
+      }
+      .sidebar img { display: none; }
+      .download-btn-sidebar { display: none; }
+      .header { height: 50vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="C:\Users\rahul\OneDrive\Desktop\WhatsApp Image 2025-07-07 at 13.15.39_e16fc6ec.jpg" alt="Avatar">
+      <nav>
+        <ul>
+          <li><a href="D:\Web\about.html">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="D:\Web\contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="download-btn-sidebar" id="downloadProfile">Download Profile</button>
+    </aside>
+    <!-- Main Content -->
+    <div class="main">
+      <!-- Header Section -->
+      <section class="header" id="about">
+        <div class="header-content">
+          <h1>Rahul <span class="highlight">Jassal</span></h1>
+          <p>The next big idea is waiting for its next big changer with Themsbit. 
+             I leverage agile frameworks to provide a robust synopsis for high-level overviews.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Section -->
+      <section class="section" id="experience">
+        <h2>Experience</h2>
+        <div class="experience-cards">
+          <div class="card">
+            <h3>Student</h3>
+            <div class="date">2023 - Present</div>
+            <p>BTech CSE</p>
+          </div>
+          <div class="card">
+            <h3>Cyber Specialist</h3>
+            <div class="date">2024 - Present</div>
+            <p>Certified ETHICAL HACKER</p>
+          </div>
+        </div>
+      </section>
+      <!-- Additional sections (Portfolio, Skills, Awards, Contact) can follow here -->
+    </div>
+  </div>
+
+  <script>
+    // Profile data for download
+    const profileData = {
+      name: "Rahul Jassal",
+      title: "Student",
+      email: "rahul@example.com",
+      social: {
+        facebook: "https://facebook.com/rahuljassal",
+        instagram: "https://instagram.com/d0abe.aala",
+        linkedin: "https://linkedin.com/in/rahuljassal",
+        github: "https://github.com/rahuljassal"
+      }
+    };
+    document.getElementById('downloadProfile').addEventListener('click', () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(profileData, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute('href', dataStr);
+      dlAnchor.setAttribute('download', 'profile.json');
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      document.body.removeChild(dlAnchor);
+    });
+  </script>
+</body>
+</html>
